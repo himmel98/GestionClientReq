@@ -36,4 +36,15 @@ public class ClientService {
     public void deleteClient(long id) {
         clientRepository.deleteById((long) id);
     }
+    public List<Client> getClientsByVille(String ville) {
+        return clientRepository.findByVille(ville);
+    }
+    public List<Client> getClientsByNom(String nom) {
+        return clientRepository.findByNom(nom);
+    }
+
+    public Long countClientsByVille(String ville) {
+        return clientRepository.countByVille(ville);
+    }
+
 }

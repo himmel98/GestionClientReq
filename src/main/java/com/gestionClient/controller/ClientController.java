@@ -14,11 +14,11 @@ public class ClientController {
     @Autowired
     private ClientService clientService;
 
-    // Créer un nouveau client
+    // Ajouter un nouveau client (POST)
     @PostMapping
-    public ResponseEntity<Client> createClient(@RequestBody Client client) {
-        Client savedClient = clientService.saveClient(client);
-        return ResponseEntity.ok(savedClient);
+    public ResponseEntity<Client> saveClient(@RequestBody Client client) {
+        client.setId(0); // Important pour éviter le problème de mise à jour
+        return ResponseEntity.ok(clientService.saveClient(client));
     }
 
     // Récupérer tous les clients
@@ -58,4 +58,21 @@ public class ClientController {
             return ResponseEntity.notFound().build();
         }
     }
+    // Rechercher par ville
+    @GetMapping("/ville/{ville}")
+    public ResponseEntity<List<Client>> getClientsByVille(@PathVariable String ville) {
+        List<Client> clients = clientService.getClientsByVille(ville);
+        return ResponseEntity.ok(clients);
+    }
+    //Rechercher par nom
+    @GetMapping("/nom/{nom}")
+    public ResponseEntity<List<Client>> getClientsByNom(@PathVariable String nom) {
+        return ResponseEntity.ok(clientService.getClientsByNom(nom));
+    }
+    //Compter les clients par ville
+    @GetMapping("/ville/{ville}/count")
+    public ResponseEntity<Long> countClientsByVille(@PathVariable String ville) {
+        return ResponseEntity.ok(clientService.countClientsByVille(ville));
+    }
+
 }
