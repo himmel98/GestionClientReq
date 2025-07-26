@@ -1,0 +1,8 @@
+2025-07-26 18:12:57.572129+01:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Erreur de syntaxe dans l'instruction SQL "Delete [*]* FROM Client"; attendu "identifier"
+Syntax error in SQL statement "Delete [*]* FROM Client"; expected "identifier"; SQL statement:
+Delete * FROM Client [42001-232]
+2025-07-26 18:13:02.453000+01:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Erreur de syntaxe dans l'instruction SQL "Delete [*]* FROM Client"; attendu "identifier"
+Syntax error in SQL statement "Delete [*]* FROM Client"; expected "identifier"; SQL statement:
+Delete * FROM Client [42001-232]
